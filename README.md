@@ -2,6 +2,7 @@
 A simple website to locally convert PDFs into images.
 No limits, 100% privacy, as it's ran on own machine only not requiring cloud support.
 
+[Use it!](https://pdfimage.ddns.net/)
 
 # Using
  - [PDF.js](https://mozilla.github.io/pdf.js/)
