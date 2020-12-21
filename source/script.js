@@ -15,7 +15,7 @@ function run() {
             for (i = 0;i < pdf.numPages;i++) {
                 log(`Processing page ${i+1}/${pdf.numPages}`);
                 let page = await pdf.getPage(i+1);
-                var viewport = await page.getViewport({ scale: 6});
+                var viewport = await page.getViewport({scale: document.getElementById('scale').value});
 
                 var canvas = document.getElementById('canvas');
                 var context = canvas.getContext('2d');
