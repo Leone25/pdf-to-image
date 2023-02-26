@@ -12,6 +12,7 @@ function run() {
         var loadingTask = pdfjsLib.getDocument(contents);
         loadingTask.promise.then(async (pdf) => {
             var zip = new JSZip();
+            let digits = Math.floor(Math.log10(pdf.numPages));
             for (i = 0;i < pdf.numPages;i++) {
                 log(`Processing page ${i+1}/${pdf.numPages}`);
                 let page = await pdf.getPage(i+1);
@@ -24,7 +25,11 @@ function run() {
 
                 await page.render({canvasContext: context,viewport: viewport}).promise;
                 
-                zip.file(`${i+1}.${document.getElementById('format').value.substring(6)}`, document.getElementById('canvas').toDataURL(document.getElementById('format').value).substring(`data:${document.getElementById('format').value};base64,`.length), {base64: true});
+                if (document.getElementById("leading-zeroes").checked = true) {
+                    zip.file(`${"0".repeat(digits-Math.floor(Math.log10(i+1))}${i+1}.${document.getElementById('format').value.substring(6)}`, document.getElementById('canvas').toDataURL(document.getElementById('format').value).substring(`data:${document.getElementById('format').value};base64,`.length), {base64: true});
+                } else {
+                    zip.file(`${i+1}.${document.getElementById('format').value.substring(6)}`, document.getElementById('canvas').toDataURL(document.getElementById('format').value).substring(`data:${document.getElementById('format').value};base64,`.length), {base64: true});
+                }
             }
             log("Saving . . .");
             await zip.generateAsync({type:"blob"})
