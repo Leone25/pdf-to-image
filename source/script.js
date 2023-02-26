@@ -26,7 +26,7 @@ function run() {
                 await page.render({canvasContext: context,viewport: viewport}).promise;
                 
                 if (document.getElementById("leading-zeroes").checked = true) {
-                    zip.file(`${"0".repeat(digits-Math.floor(Math.log10(i+1))}${i+1}.${document.getElementById('format').value.substring(6)}`, document.getElementById('canvas').toDataURL(document.getElementById('format').value).substring(`data:${document.getElementById('format').value};base64,`.length), {base64: true});
+                    zip.file(`${"0".repeat(digits-Math.floor(Math.log10(i+1)))}${i+1}.${document.getElementById('format').value.substring(6)}`, document.getElementById('canvas').toDataURL(document.getElementById('format').value).substring(`data:${document.getElementById('format').value};base64,`.length), {base64: true});
                 } else {
                     zip.file(`${i+1}.${document.getElementById('format').value.substring(6)}`, document.getElementById('canvas').toDataURL(document.getElementById('format').value).substring(`data:${document.getElementById('format').value};base64,`.length), {base64: true});
                 }
