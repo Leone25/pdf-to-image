@@ -14,15 +14,18 @@
 <a href="https://github.com/Leone25/pdf-to-image" style="float: right;">Star on Github!</a>
 <input type="file" id="file" accept="application/pdf">
 <br>
-<label>Format: </label>
+<label for="format">Format: </label>
 <select id="format">
   <option value="image/png">PNG</option>
   <option value="image/jpeg">JPG</option>
   <option value="image/webp">webp</option>
 </select>
 <br>
-<label>Scale: </label>
+<label for="scale">Scale: </label>
 <input type="number" min="1" max="6" id="scale" value="2">
+<br>
+<label for="leading-zeroes">Leading zeroes (eg. 1, 2, 3 ... 20 &#8594; 01, 02, 03 ... 20)</label>
+<input type="checkbox" id="leading-zeroes">
 <br>
 <input type="button" value="Convert!" id="go">
 <br>
